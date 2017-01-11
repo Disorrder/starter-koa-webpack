@@ -7,18 +7,22 @@ var cfg = require('./buildconfig.json');
 const npm = require('./package.json');
 const bower = require('./bower.json');
 
-// const CleanWebpackPlugin  = require('clean-webpack-plugin');
-// const HtmlWebpackPlugin   = require('html-webpack-plugin');
-// const SplitByPathPlugin   = require('webpack-split-by-path');
+const CleanWebpackPlugin  = require('clean-webpack-plugin');
 const CopyWebpackPlugin   = require('copy-webpack-plugin');
 // const BowerWebpackPlugin = require("bower-webpack-plugin");
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+// env variables
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+function isDev() { return process.env.NODE_ENV == 'development' }
+function isProd() { return process.env.NODE_ENV == 'production' }
+function isMac() { return os.platform() == 'darwin' }
+function isWin() { return os.platform() == 'win32' }
 
 var flags = {
-    watch: process.env.NODE_ENV == 'development',
-    sourcemaps: os.platform() != 'darwin' && process.env.NODE_ENV == 'development',
-    // sourcemaps: false
+    watch: false,
+    // watch: isDev(),
+    clean: isProd(),
+    sourcemaps: !isMac() && isDev(),
 }
 
 console.log(process.env.NODE_ENV, 'mode');
@@ -30,8 +34,9 @@ module.exports = {
     watch: flags.watch,
     devtool: flags.sourcemaps ? "cheap-source-map" : null,
     entry: {
+        vendor: `app/vendor.js`,
         app: `app/app.entry.js`,
-        vendor: Object.keys(npm.dependencies)//.concat(Object.keys(bower.dependencies || []))
+        // vendor: Object.keys(npm.dependencies)//.concat(Object.keys(bower.dependencies || []))
     },
     output: {
         // path: path.join(cfg.path.build, 'scripts'),
@@ -77,6 +82,8 @@ module.exports = {
         noParse: /\.min\.js$/
     },
     plugins: [
+        flags.clean ? new CleanWebpackPlugin([cfg.path.build]) : new Function(),
+
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
@@ -87,9 +94,9 @@ module.exports = {
 
         new CopyWebpackPlugin([
             { from: 'config.js' },
-            { from: 'assets/' },
             { from: 'favicon.*' },
-            { from: '**/*.html' }
+            { from: '**/*.html' },
+            { from: 'assets/', to: 'assets/' },
         ]),
 
         // new SplitByPathPlugin([

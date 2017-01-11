@@ -9,6 +9,7 @@
     "babel-preset-stage-2": "^6.17.0",
     "bower": "^1.7.9",
     "bower-webpack-plugin": "^0.1.9",
+    "clean-webpack-plugin": "^0.1.15",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.10.0",
     "colors": "^1.1.2",
@@ -35,7 +36,7 @@
   "scripts": {
     "postinstall": "bower install",
     "gulp": "./node_modules/.bin/gulp",
-    "server": "webpack-dev-server --progress",
+    "server": "webpack-dev-server --progress --watch",
     "build": "webpack",
     "build-prod": "NODE_ENV=production npm run build",
     "build-prod-win": "set NODE_ENV=production && npm run build",

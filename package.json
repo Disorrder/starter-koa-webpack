@@ -36,7 +36,7 @@
   "scripts": {
     "postinstall": "bower install",
     "gulp": "./node_modules/.bin/gulp",
-    "server": "webpack-dev-server --progress --watch",
+    "server": "webpack-dev-server --progress",
     "build": "webpack",
     "build-prod": "NODE_ENV=production npm run build",
     "build-prod-win": "set NODE_ENV=production && npm run build",

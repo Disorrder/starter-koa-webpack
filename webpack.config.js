@@ -54,7 +54,7 @@ module.exports = {
             aggregateTimeout: 300,
             poll: 1000
         },
-        // outputPath: cfg.path.build,
+        outputPath: cfg.path.build,
         contentBase: cfg.path.src
     },
     resolve: {
@@ -95,7 +95,7 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'config.js' },
             { from: 'favicon.*' },
-            { from: '**/*.html' },
+            { from: '**/*.html', to: '[name].[ext]' },
             { from: 'assets/', to: 'assets/' },
         ]),
 

@@ -6,6 +6,7 @@ const webpack = require('webpack');
 var cfg = require('./buildconfig.json');
 const npm = require('./package.json');
 const bower = require('./bower.json');
+const pug = require('pug');
 
 const CleanWebpackPlugin  = require('clean-webpack-plugin');
 const CopyWebpackPlugin   = require('copy-webpack-plugin');
@@ -32,22 +33,21 @@ module.exports = {
     context: path.resolve(cfg.path.app),
     debug: true,
     watch: flags.watch,
-    devtool: flags.sourcemaps ? "cheap-source-map" : null,
     entry: {
         vendor: `app/vendor.js`,
         app: `app/app.entry.js`,
         // vendor: Object.keys(npm.dependencies)//.concat(Object.keys(bower.dependencies || []))
     },
     output: {
-        // path: path.join(cfg.path.build, 'scripts'),
         path: cfg.path.build,
         // publicPath: cfg.path.build,
         filename: '[name].js',
         library: '[name]'
     },
+    devtool: flags.sourcemaps ? "cheap-source-map" : null,
     devServer: {
-        port: cfg.port,
-        host: cfg.host,
+        port: cfg.webserver.port,
+        host: cfg.webserver.host,
         inline: true,
         historyApiFallback: true,
         watchOptions: {
@@ -95,8 +95,12 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'config.js' },
             { from: 'favicon.*' },
-            { from: '**/*.html', to: '[name].[ext]' },
             { from: 'assets/', to: 'assets/' },
+            { from: '**/*.html', to: '[name].[ext]' },
+            // {
+            //     from: '{*,app/pages/**/*,app/errors/**/*}.pug', to: '[name].html',
+            //     transform: (content, filepath) => pug.compile(content, {pretty: true})()
+            // }
         ]),
 
         // new SplitByPathPlugin([
@@ -115,4 +119,10 @@ module.exports = {
            _: 'lodash',
         })
     ]
+}
+
+if (cfg.api && cfg.api.active) {
+    module.exports.devServer.proxy = {
+        '/api/**': { target: `http://${cfg.api.host}:${cfg.api.port}`, secure: false }
+    }
 }

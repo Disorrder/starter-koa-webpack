@@ -1,0 +1,20 @@
+/* font-family: "FuturaRegular"; */
+@font-face {
+    font-family: "Futura";
+    src: url("/assets/fonts/FuturaRegular/FuturaRegular.eot");
+    src: url("/assets/fonts/FuturaRegular/FuturaRegular.eot?#iefix")format("embedded-opentype"),
+    url("/assets/fonts/FuturaRegular/FuturaRegular.woff") format("woff"),
+    url("/assets/fonts/FuturaRegular/FuturaRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/* font-family: "FuturaBold"; */
+@font-face {
+    font-family: "Futura";
+    src: url("/assets/fonts/FuturaBold/FuturaBold.eot");
+    src: url("/assets/fonts/FuturaBold/FuturaBold.eot?#iefix")format("embedded-opentype"),
+    url("/assets/fonts/FuturaBold/FuturaBold.woff") format("woff"),
+    url("/assets/fonts/FuturaBold/FuturaBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bolder;
+}

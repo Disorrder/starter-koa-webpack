@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>Ваш уютный дом</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Neucha" rel="stylesheet">
 
     <script src="/vendor.js"></script>
     <script src="/app.js"></script>
@@ -26,11 +25,13 @@
 </head>
 
 <body>
-    <div class="brand">Business Casual</div>
-    <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+    <header class="text-center">
+        <div class="brand">Ваш уютный дом</div>
+        <div class="address-bar text-uppercase">Ремонт квартир в Москве и Московской  области</div>
+    </header>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default hidden" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -66,7 +67,6 @@
     </nav>
 
     <div class="container">
-
         <div class="row">
             <div class="box">
                 <div class="col-lg-12 text-center">
@@ -76,11 +76,17 @@
                             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="5"></li>
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
+                                <img class="img-responsive img-full" src="/assets/images/slide-0.jpg" alt="">
+                            </div>
+                            <div class="item">
                                 <img class="img-responsive img-full" src="/assets/images/slide-1.jpg" alt="">
                             </div>
                             <div class="item">
@@ -88,6 +94,12 @@
                             </div>
                             <div class="item">
                                 <img class="img-responsive img-full" src="/assets/images/slide-3.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="/assets/images/slide-4.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive img-full" src="/assets/images/slide-5.jpg" alt="">
                             </div>
                         </div>
 
@@ -99,7 +111,8 @@
                             <span class="icon-next"></span>
                         </a>
                     </div>
-                    <h2 class="brand-before">
+
+                    <!-- <h2 class="brand-before">
                         <small>Welcome to</small>
                     </h2>
                     <h1 class="brand-name">Business Casual</h1>
@@ -108,7 +121,7 @@
                         <small>By
                             <strong>Start Bootstrap</strong>
                         </small>
-                    </h2>
+                    </h2> -->
                 </div>
             </div>
         </div>
@@ -117,15 +130,28 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Build a website
-                        <strong>worth visiting</strong>
-                    </h2>
+                    <h2 class="intro-text text-center">О нас</h2>
                     <hr>
                     <img class="img-responsive img-border img-left" src="/assets/images/intro-pic.jpg" alt="">
                     <hr class="visible-xs">
-                    <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+                    <p>
+                        Частная строительная бригада выполнит весь комплекс ремонтно-строительных работ:
+                        <span>Капитальный, стандартный, косметический.</span>
+                        <strong>Любой сложности.</strong>
+                    </p>
+                    <p class="hidden">
+                        Профессиональная электрика, сантехника. Квартиры, дома, дачи.
+                        Бесплатный выезд мастера.
+                        Заключение договора.
+                        Составление прозрачной сметы.
+                        Помощь в подборе материалов и доставка.
+                    </p>
+                    <p>
+                        Все специалисты со стажем не менее 10 лет. Славяне. Со здоровым образом жизни. С серьёзным отношением к работе. Звоните! С нами всегда можно договориться.
+                    </p>
+                    <!-- <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
                     <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p> -->
                 </div>
             </div>
         </div>
@@ -134,24 +160,52 @@
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Beautiful boxes
-                        <strong>to showcase your content</strong>
+                    <h2 class="intro-text text-center">
+                        Чем мы занимаемся
                     </h2>
                     <hr>
-                    <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <p>
+                        Профессиональная электрика, сантехника.
+                        <br>
+                        Квартиры, дома, дачи.
+                        <br>
+                        Бесплатный выезд мастера.
+                        <br>
+                        Заключение договора.
+                        <br>
+                        Составление прозрачной сметы.
+                        <br>
+                        Помощь в подборе материалов и доставка.
+                    </p>
                 </div>
             </div>
         </div>
 
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        Контакты
+                    </h2>
+                    <hr>
+                    <p>
+                        <b>тел.:</b> +7 (925) 200 8721 - Елена, Денис
+                    </p>
+                    <hr>
+                    <p>
+                        <i>Мы работаем в</i>: Одинцово, Красногоский р-н...
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.container -->
 
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; Your Website 2017</p>
                 </div>
             </div>
         </div>

@@ -10,6 +10,7 @@ const pug = require('pug');
 
 const CleanWebpackPlugin  = require('clean-webpack-plugin');
 const CopyWebpackPlugin   = require('copy-webpack-plugin');
+const HtmlWebpackPlugin   = require('html-webpack-plugin');
 // const BowerWebpackPlugin = require("bower-webpack-plugin");
 
 // env variables
@@ -84,6 +85,11 @@ module.exports = {
     plugins: [
         flags.clean ? new CleanWebpackPlugin([cfg.path.build]) : new Function(),
 
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: 'app/pages/main/index.html',
+        }),
+
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
         new webpack.ResolverPlugin(
             new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
@@ -96,7 +102,7 @@ module.exports = {
             { from: 'config.js' },
             { from: 'favicon.*' },
             { from: 'assets/', to: 'assets/' },
-            { from: '**/*.html', to: '[name].[ext]' },
+            // { from: '**/*.html', to: '[name].[ext]' },
             // {
             //     from: '{*,app/pages/**/*,app/errors/**/*}.pug', to: '[name].html',
             //     transform: (content, filepath) => pug.compile(content, {pretty: true})()

@@ -8,6 +8,7 @@ const npm = require('./package.json');
 const bower = require('./bower.json');
 const pug = require('pug');
 
+const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin  = require('clean-webpack-plugin');
 const CopyWebpackPlugin   = require('copy-webpack-plugin');
 const HtmlWebpackPlugin   = require('html-webpack-plugin');
@@ -25,6 +26,7 @@ var flags = {
     // watch: isDev(),
     clean: isProd(),
     sourcemaps: !isMac() && isDev(),
+    notify: isDev(),
 }
 
 console.log(process.env.NODE_ENV, 'mode');
@@ -83,6 +85,7 @@ module.exports = {
         noParse: /\.min\.js$/
     },
     plugins: [
+        flags.notify ? new WebpackNotifierPlugin({excludeWarnings: true}) : new Function(),
         flags.clean ? new CleanWebpackPlugin([cfg.path.build]) : new Function(),
 
         new HtmlWebpackPlugin({

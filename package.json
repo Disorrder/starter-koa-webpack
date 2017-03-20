@@ -31,7 +31,8 @@
     "stylus-loader": "^2.4.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
-    "webpack-split-by-path": "0.1.0-beta.1"
+    "webpack-split-by-path": "0.1.0-beta.1",
+    "webpack-notifier": "^1.5.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

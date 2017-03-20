@@ -130,6 +130,14 @@ hr + .intro-text {
     margin: 0 auto 0;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #ddd;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+
 footer {
     background: #fff;
     background: rgba(255,255,255,0.9);

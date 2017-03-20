@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 
 import $ from 'jquery';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 window.$ = $;
-window._ = _;
+// window._ = _;
